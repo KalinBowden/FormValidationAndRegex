@@ -21,6 +21,11 @@ body
     padding: 2.5em;
 }
 
+#warning
+{
+    display: none;
+}
+
 .radio
 {
     padding-top: 3em;
