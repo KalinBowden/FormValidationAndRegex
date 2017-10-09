@@ -10,6 +10,7 @@ body
 .container-fluid
 {
     background: linear-gradient(35deg,orange, purple);
+    height: 75em;
 }
 
 .formCol
@@ -24,6 +25,9 @@ body
 #warning
 {
     display: none;
+    color: darkred;
+    padding: 1.3em;
+    font-size: 1.5em;
 }
 
 .radio
@@ -35,4 +39,11 @@ body
 .btnSub
 {
     margin-left: 42%;
+}
+
+#duckSelect
+{
+    margin-top: 2em;
+    margin-bottom: 3em;
+    width: 35%;
 }
