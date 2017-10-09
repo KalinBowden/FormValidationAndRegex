@@ -7,7 +7,10 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>FormValidae</title>
 
-    <!-- Bootstrap -->
+    <!-- 
+      Dev:    Kalin Bowden
+      Date:   10.9.2017
+     -->
     <!-- Latest compiled and minified CSS -->
 <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -35,7 +38,7 @@
             <div class="col-md-3"></div>
             <div class="col-md-6 formCol">
       
-              <form>
+              <form action="thankyou.html" novalidate="novalidate">
 
 
                 <h1 class="text-center">Order a Duck Form</h1>
@@ -44,50 +47,62 @@
                   Please fill out all fields with appropriate data
                 </div>
 
-
-                <div class="form-group">
+                <fieldset id="field0" class="text">
+                  <div class="form-group">
                   <label for="exampleInputEmail1">Email address</label>
-                  <input type="email" class="form-control" id="emailId" placeholder="Email">
+                  <input type="email" class="form-control" name="email" id="emailId" placeholder="Email">
                 </div>
-
-                <div class="form-group">
+                </fieldset>
+                
+                <fieldset id="field1" class="text">
+                  <div class="form-group">
                     <label for="exampleInputName2">Name</label>
-                    <input type="text" class="form-control" id="nameId" placeholder="Name">
+                    <input type="text" class="form-control" name="name" id="nameId" placeholder="Name">
                   </div>
-
-                <div class="form-group">
-                  <label for="exampleInputPassword1">Phone</label>
-                  <input type="phone" class="form-control" id="phoneId" placeholder="Phone">
-                </div>
-
-                <div>
-                  <h4><strong>How many ducks do you want?</strong></h4>
-                  <label class="radio-inline" >
-                    <input type="radio" name="inlineRadioOptions" id="radio1" value="option1"> 1 Duck
-                  </label>
-                  <label class="radio-inline">
-                    <input type="radio" name="inlineRadioOptions" id="radio2" value="option2"> 2 Ducks
-                  </label>
-                  <label class="radio-inline">
-                    <input type="radio" name="inlineRadioOptions" id="radio3" value="option3"> 3 Ducks
-                  </label>
-                </div>
+                </fieldset>
+                
+                <fieldset id="field2" class="text">
+                  <div class="form-group">
+                   <label for="exampleInputPassword1">Phone</label>
+                   <input type="phone" class="form-control" name="phone" id="phoneId" placeholder="Phone">
+                  </div>
+                </fieldset>
+                
+                <fieldset id="field3" class="radio">
+                  <div>
+                    <h4><strong>How many ducks do you want?</strong></h4>
+                    <label class="radio-inline" >
+                      <input type="radio" name="numOfDucks" id="radio1" value="1"> 1 Duck
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="numOfDucks" id="radio2" value="2"> 2 Ducks
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="numOfDucks" id="radio3" value="3"> 3 Ducks
+                    </label>
+                  </div>
+                </fieldset>
+                
 
 
                 <!-- Single button -->
-                <h4><strong>Pick the Duck you want.</strong></h4>
-                <select class="form-control" id="duckSelect">
-                  <option>Please select a Duck...</option>
-                  <option>Scuba Duck</option>
-                  <option>Dancer Duck</option>
-                  <option>Markley Duck</option>
-                  <option>Pirate Duck</option>
-                  <option>Tutor Duck</option>
-                </select>
+
+                <fieldset id="field4" class="select">
+                  <h4><strong>Pick the Duck you want.</strong></h4>
+                  <select class="form-control" name="duck" id="duckSelect">
+                    <option>Please select a Duck...</option>
+                    <option>Scuba Duck</option>
+                    <option>Dancer Duck</option>
+                    <option>Markley Duck</option>
+                    <option>Pirate Duck</option>
+                    <option>Tutor Duck</option>
+                  </select>
+
+                </fieldset>
+                
 
 
-
-                <button type="button" class="btn btn-default btnSub" id="myBtn"> <Strong>Order Duck</Strong></button>
+                <button type="submit" class="btn btn-default btnSub" id="myBtn"> <Strong>Order Duck</Strong></button>
               </form>
       
             </div>

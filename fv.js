@@ -1,21 +1,28 @@
 /*
-
+Dev:    Kalin
+Date:   10.9.2017
 */
 
+// script level variables
 var warn = "#fecfcf";
 var regex0 = /([0-9]{3}-[0-9]{3}-[0-9]{4}|[0-9]{3}\.[0-9]{3}\.[0-9]{4})/
 var regex1 = /([0-9a-zA-Z\.\_\-]{0,}@[0-9a-zA-Z\.\_\-]{0,}\.[0-9a-zA-z]{2,})/
 
+
+// When the form loads do this
 function onFormLoad()
 {
     var btn = document.getElementById("myBtn");
-    btn.addEventListener("click", validateForm, false)
+    btn.addEventListener("click", validateForm, false);
 }
 
 
-
-function validateForm()
+// Check form before submit
+function validateForm(e)
 {
+    // Dont submit form yet
+    e.preventDefault();
+
 
     // Function level variables
     var warnBox = document.getElementById("warning");
@@ -29,6 +36,8 @@ function validateForm()
     var formValid = true;
     var mgs = "";
 
+
+    // Validate form. If it fails alert user.
     try
     {
         // Reset the error msg
@@ -41,14 +50,14 @@ function validateForm()
         {
             email.style.background = warn;
             email.style.border = "1px solid red";
-            msg += "Please include your email.";
+            msg += "Please include your email. </br>";
             formValid = false;
         }
         else if (!regex1.test(email.value))
         {
             email.style.background = warn;
             email.style.border = "1px solid red";
-            msg += "Please include you full email address.";
+            msg += "Please include you full email address. </br>";
             formValid = false;
         }
         else
@@ -64,14 +73,14 @@ function validateForm()
         {
             name.style.background = warn;
             name.style.border = "1px solid red";
-            msg += "Please include your full name";
+            msg += "Please include your full name. </br>";
             formValid = false;
         } 
         else if (name.value.length < 6)
         {
             name.style.background = warn;
             name.style.border = "1px solid red";
-            msg += "Please include your full name.";
+            msg += "Please include your full name. </br>";
             formValid = false;
         }
         else
@@ -87,14 +96,14 @@ function validateForm()
         {
             phone.style.background = warn;
             phone.style.border = "1px solid red";
-            msg += "please incluse your phone wit area code.";
+            msg += "Please incluse your phone with area code. </br>";
             formValid = false;
         }
         else if (!regex0.test(phone.value))
         {
             phone.style.background = warn;
             phone.style.border = "1px solid red";
-            msg += "please include your phone with area code.";
+            msg += "Please include your phone number with area code. </br>";
             formValid = false;
         }
         else
@@ -112,7 +121,7 @@ function validateForm()
             radio1.style.outline = "1px solid red";;
             radio2.style.outline = "1px solid red";
             formValid = false;
-            msg += "You must select how many ducks you want";
+            msg += "You must select how many ducks you want. </br>";
         }
         else
         {
@@ -128,9 +137,8 @@ function validateForm()
         {
             duck.style.background = warn;
             duck.style.border = "1px solid red";
-            msg += "please pick a duck.";
+            msg += "Please pick a duck. </br>";
             formValid = false;
-            alert("it fired");
         }
         else
         {
@@ -140,9 +148,14 @@ function validateForm()
         }
 
 
+        // If the form did not validate throw an error
         if(!formValid)
         {
             throw msg;
+        }
+        else
+        {
+            document.getElementsByTagName("form")[0].submit();
         }
     }
     catch(msg) // If an error is encountered display the approprate error msg
@@ -150,16 +163,7 @@ function validateForm()
         warnBox.style.display = "block";
         warnBox.innerHTML = msg;
     }
-
-
-
-
-    
-
-
-
-    
 }
 
-
+// Add an onload event
 window.addEventListener("load", onFormLoad, false);
