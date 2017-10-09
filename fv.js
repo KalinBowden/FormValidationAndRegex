@@ -3,6 +3,8 @@
 */
 
 var warn = "#fecfcf";
+var regex0 = /([0-9]{3}-[0-9]{3}-[0-9]{4}|[0-9]{3}\.[0-9]{3}\.[0-9]{4})/
+var regex1 = /([0-9]{3}-[0-9]{3}-[0-9]{4}|[0-9]{3}\.[0-9]{3}\.[0-9]{4})/
 
 function onFormLoad()
 {
@@ -14,6 +16,20 @@ function onFormLoad()
 
 function validateForm()
 {
+
+    try
+    {
+        var mgs = "";
+
+    }
+    catch(msg)
+    {
+
+    }
+
+
+
+
     //
     var warnBox = document.getElementById("warning");
     var email = document.getElementById("emailId");
@@ -26,6 +42,12 @@ function validateForm()
 
     //
     if (email.value === "")
+    {
+        email.style.background = warn;
+        email.style.border = "1px solid red";
+        warnBox.style.display = "block";
+    }
+    else if (regex1.test(email.value))
     {
         email.style.background = warn;
         email.style.border = "1px solid red";
@@ -46,6 +68,12 @@ function validateForm()
         name.style.border = "1px solid red";
         warnBox.style.display = "block";
     }
+    else if (name.value.length < 6)
+    {
+        name.style.background = warn;
+        name.style.border = "1px solid red";
+        warnBox.style.display = "block";
+    }
     else
     {
         name.style.background = "";
@@ -55,15 +83,17 @@ function validateForm()
 
 
     //
-    if (phone.value === "")
+    if (phone.value === "p")
     {
         phone.style.background = warn;
         phone.style.border = "1px solid red";
         warnBox.style.display = "block";
     }
-    else if ()
+    else if (!regex0.test(phone.value))
     {
-        
+        phone.style.background = warn;
+        phone.style.border = "1px solid red";
+        warnBox.style.display = "block";
     }
     else
     {
