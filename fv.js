@@ -6,7 +6,7 @@ Date:   10.9.2017
 // script level variables
 var warn = "#fecfcf";
 var regex0 = /([0-9]{3}-[0-9]{3}-[0-9]{4}|[0-9]{3}\.[0-9]{3}\.[0-9]{4})/
-var regex1 = /([0-9a-zA-Z\.\_\-]{0,}@[0-9a-zA-Z\.\_\-]{0,}\.[0-9a-zA-z]{2,})/
+var regex1 = /([0-9a-zA-Z\.\_\-]{1,}@[0-9a-zA-Z\.\_\-]{1,}\.[0-9a-zA-z]{2,})/
 
 
 // When the form loads do this
